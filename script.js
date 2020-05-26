@@ -1,31 +1,61 @@
-document.getElementById("date-today").innerHTML = moment().format(
-  "MMMM Do YYYY, h:mm"
-);
+$(document).ready(function () {
+  document.getElementById("date-today").innerHTML = moment().format(
+    "MMMM Do YYYY, h:mm"
+  );
 
-var currentHour = moment().format("h");
+  var currentHour = moment().format("h");
 
-for (i = 1; i <= 10; i++) {
-  rowTime = document.getElementById("time" + i).innerHTML;
-  // if currenttime is = rowtime : make row red
-  console.log(currentHour, rowTime);
+  for (i = 1; i <= 10; i++) {
+    rowTime = document.getElementById("time" + i).innerHTML;
+    // if currenttime is = rowtime : make row red
+    console.log(currentHour, rowTime);
 
-  if (moment().isSame(moment(rowTime, "h a"), "hour")) {
-    document.getElementById("text-entry" + i).style.backgroundColor = "red";
+    if (moment().isSame(moment(rowTime, "h a"), "hour")) {
+      document.getElementById("text-entry" + i).style.backgroundColor = "red";
+    }
+
+    // if currenttime is < row time : make row green
+
+    if (moment().isBefore(moment(rowTime, "h a"), "hour")) {
+      document.getElementById("text-entry" + i).style.backgroundColor = "green";
+    }
+
+    // if currenttime is > rowtime : make row grey
+
+    if (moment().isAfter(moment(rowTime, "h a"), "hour")) {
+      document.getElementById("text-entry" + i).style.backgroundColor = "grey";
+    }
   }
 
-  // if currenttime is < row time : make row green
+  // // text input needs to save to local storage
+  // document.getElementById("")
 
-  if (moment().isBefore(moment(rowTime, "h a"), "hour")) {
-    document.getElementById("text-entry" + i).style.backgroundColor = "green";
-  }
+  $(".save").on("click", function () {
+    var key = $(this).attr("id");
 
-  // if currenttime is > rowtime : make row grey
+    var value = $(this).siblings(".todo").val();
 
-  if (moment().isAfter(moment(rowTime, "h a"), "hour")) {
-    document.getElementById("text-entry" + i).style.backgroundColor = "grey";
-  }
-}
+    localStorage.setItem(key, value);
+  });
 
-// rowTime = document.getElementById("time1").innerHTML;
+  // copy for every hour block by changing id
+  $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
 
-// moment(currentHour).isSame(rowTime, "hour");
+  $("#time9").siblings(".todo").val(localStorage.getItem("hour4"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+
+  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+});
