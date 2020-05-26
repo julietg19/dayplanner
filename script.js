@@ -10,7 +10,7 @@ for (i = 1; i <= 10; i++) {
   console.log(currentHour, rowTime);
 
   if (moment().isSame(moment(rowTime, "h a"), "hour")) {
-    document.getElementById("text-entry" + 1).style.backgroundColor = "red";
+    document.getElementById("text-entry" + i).style.backgroundColor = "red";
   }
 
   // if currenttime is < row time : make row green
@@ -24,8 +24,7 @@ for (i = 1; i <= 10; i++) {
   if (moment().isAfter(moment(rowTime, "h a"), "hour")) {
     document.getElementById("text-entry" + i).style.backgroundColor = "grey";
   }
-
-
+}
 
 // rowTime = document.getElementById("time1").innerHTML;
 
