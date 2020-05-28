@@ -39,23 +39,24 @@ $(document).ready(function () {
   });
 
   // copy for every hour block by changing id
+
+  $("#time1").siblings(".todo").val(localStorage.getItem("hour8"));
+
+  $("#time2").siblings(".todo").val(localStorage.getItem("hour9"));
+
+  $("#time3").siblings(".todo").val(localStorage.getItem("hour10"));
+
+  $("#time4").siblings(".todo").val(localStorage.getItem("hour2"));
+
+  $("#time5").siblings(".todo").val(localStorage.getItem("hour1"));
+
+  $("#time6").siblings(".todo").val(localStorage.getItem("hour6"));
+
+  $("#time7").siblings(".todo").val(localStorage.getItem("hour7"));
+
   $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
 
   $("#time9").siblings(".todo").val(localStorage.getItem("hour4"));
 
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
-
-  // $("#time8").siblings(".todo").val(localStorage.getItem("hour3"));
+  $("#time10").siblings(".todo").val(localStorage.getItem("hour5"));
 });
